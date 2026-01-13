@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Complete jQuery Combined Examples</title>
+
+<!-- jQuery Library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+<style>
+.section {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 15px 0;
+}
+.box {
+    width: 100px;
+    height: 100px;
+    background-color: blue;
+    position: relative;
+}
+</style>
+
+<script type="text/javascript">
+$(document).ready(function () {
+
+    /* 1. Click Event Alert */
+    $("#clickDiv").click(function () {
+        alert("Hello, world!");
+    });
+
+    /* 2. CSS Selector Example */
+    $("#cssBtn").click(function () {
+        $("p").css("background-color", "yellow");
+        $("#myid").css("background-color", "red");
+    });
+
+    /* 3. Get and Set Attributes */
+    $("#attrBtn").click(function () {
+        var title = $("#attrPara").attr("title");
+        $("#attrResult").text(title);
+        $("#myimg").attr("src", "/home/WP_B2/Documents/WP lab/Week2/pexels-conojeghuo-375880.jpg");
+    });
+
+    /* 4. replaceWith() */
+    $("#replaceDiv").click(function () {
+        $(this).replaceWith("<h1>jQuery is Great</h1>");
+    });
+
+    /* 5. Button Click Event */
+    $("#eventBtn").click(function () {
+        $(this).val("Stop that!");
+    });
+
+    /* 6. Hover Event */
+    $("#hoverDiv").hover(
+        function () {
+            $(this).css("background-color", "red");
+        },
+        function () {
+            $(this).css("background-color", "blue");
+        }
+    );
+
+    /* 7. bind() Event */
+    $("#bindBtn").bind("click", function () {
+        alert("bind() event triggered");
+    });
+
+    /* 8. Checked Radio Button */
+    $("#radioBtn").click(function () {
+        var result = $('input[name="gender"]:checked');
+        if (result.length > 0) {
+            $("#radioResult").html(result.val() + " is checked");
+        } else {
+            $("#radioResult").html("No radio button checked");
+        }
+    });
+
+    /* 9. each() with Checkboxes */
+    $("#checkBtn").click(function () {
+        var result = $('input[name="skills"]:checked');
+        if (result.length > 0) {
+            var output = result.length + " checkbox(es) checked<br>";
+            result.each(function () {
+                output += $(this).val() + "<br>";
+            });
+            $("#checkResult").html(output);
+        } else {
+            $("#checkResult").html("No checkbox checked");
+        }
+    });
+
+    /* 10. animate() */
+    $("#animateBtn").click(function () {
+        $("#animateBox").animate({ left: "250px" }, "slow");
+    });
+
+});
+</script>
+</head>
+
+<body style="font-family: Arial">
+
+<h2>jQuery Complete Examples</h2>
+
+<div class="section">
+    <h3>1. Click Event</h3>
+    <div id="clickDiv">Click me for alert</div>
+</div>
+
+<div class="section">
+    <h3>2. CSS Selector</h3>
+    <p class="myclass">Paragraph 1</p>
+    <p id="myid">Paragraph 2</p>
+    <p>Paragraph 3</p>
+    <button id="cssBtn">Apply CSS</button>
+</div>
+
+<div class="section">
+    <h3>3. Get and Set Attributes</h3>
+    <p id="attrPara" title="Bold and Brave">This is a paragraph</p>
+    <button id="attrBtn">Get Attribute</button>
+    <div id="attrResult"></div>
+    <img id="myimg" alt="Image" width="150">
+</div>
+
+<div class="section">
+    <h3>4. replaceWith()</h3>
+    <div id="replaceDiv">Click to replace me</div>
+</div>
+
+<div class="section">
+    <h3>5. Button Click Event</h3>
+    <input type="button" id="eventBtn" value="Click Me">
+</div>
+
+<div class="section">
+    <h3>6. Hover Event</h3>
+    <div id="hoverDiv" class="box"></div>
+</div>
+
+<div class="section">
+    <h3>7. bind() Event</h3>
+    <button id="bindBtn">Bind Click</button>
+</div>
+
+<div class="section">
+    <h3>8. Checked Radio Button</h3>
+    Gender:
+    <input type="radio" name="gender" value="Male">Male
+    <input type="radio" name="gender" value="Female">Female
+    <br><br>
+    <button id="radioBtn">Submit</button>
+    <div id="radioResult"></div>
+</div>
+
+<div class="section">
+    <h3>9. each() with Checkboxes</h3>
+    Skills:
+    <input type="checkbox" name="skills" value="JavaScript">JavaScript
+    <input type="checkbox" name="skills" value="jQuery">jQuery
+    <input type="checkbox" name="skills" value="C#">C#
+    <input type="checkbox" name="skills" value="VB">VB
+    <br><br>
+    <button id="checkBtn">Submit</button>
+    <div id="checkResult"></div>
+</div>
+
+<div class="section">
+    <h3>10. animate()</h3>
+    <button id="animateBtn">Animate</button>
+    <div id="animateBox" class="box"></div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Load jQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+  <!-- Your custom jQuery code -->
+  <script>
+    $(document).ready(function () {
+        var title = $("p").attr("title");   // gets title of first <p>
+        $("#divid").text(title);             // sets text inside div
+        $("#myimg").attr("src", "/home/WP_B2/Documents/WP lab/Week2/pexels-conojeghuo-375880.jpg"); // sets image src
+    });
+  </script>
+</head>
+
+<body>
+  <div>
+    <p title="Bold and Brave">This is first paragraph.</p>
+    <p id="myid">This is second paragraph.</p>
+
+    <div id="divid"></div>
+    <img id="myimg" alt="Sample image" />
+  </div>
+</body>
+</html>
