@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Student Bio-Data Form</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <style>
+      body {
+        font-family: 'Poppins', sans-serif;
+        background: linear-gradient(135deg, #74ebd5 0%, #ACB6E5 100%);
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+      }
+
+      .form-container {
+        background-color: #ffffff;
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        width: 100%;
+        max-width: 600px;
+      }
+
+      h2 {
+        text-align: center;
+        color: #333;
+        margin-bottom: 20px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+
+      td {
+        padding: 12px 10px;
+        vertical-align: middle;
+      }
+
+ 
+      td:first-child {
+        font-weight: 600;
+        color: #555;
+        width: 35%;
+      }
+
+
+      input[type="text"],
+      input[type="date"],
+      input[type="number"],
+      input[type="tel"],
+      textarea {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-family: inherit;
+        box-sizing: border-box; 
+        transition: border 0.3s;
+      }
+
+      input:focus, textarea:focus {
+        border-color: #74ebd5;
+        outline: none;
+      }
+
+
+      input[type="radio"], input[type="checkbox"] {
+        margin-right: 5px;
+        margin-left: 10px;
+        transform: scale(1.1);
+      }
+      
+      input[type="radio"]:first-child, input[type="checkbox"]:first-child {
+        margin-left: 0;
+      }
+
+
+      .button-container {
+        text-align: center;
+        padding-top: 20px;
+      }
+
+      button {
+        padding: 10px 25px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: bold;
+        font-size: 14px;
+        transition: transform 0.2s, opacity 0.2s;
+        margin: 0 10px;
+      }
+
+      button[type="submit"] {
+        background-color: #4CAF50;
+        color: white;
+      }
+
+      button[type="reset"] {
+        background-color: #f44336;
+        color: white;
+      }
+
+      button:hover {
+        opacity: 0.9;
+        transform: translateY(-2px);
+      }
+    </style>
+  </head>
+  <body>
+
+    <div class="form-container">
+      <h2>Student Bio-Data</h2>
+
+      <form>
+        <table>
+          <tr>
+            <td><label>Student Name</label></td>
+            <td><input type="text" name="name" placeholder="Full Name" /></td>
+          </tr>
+
+          <tr>
+            <td><label>Registration Number</label></td>
+            <td><input type="text" name="rollno" placeholder="Ex: 230905XXX" /></td>
+          </tr>
+
+          <tr>
+            <td><label>Date of Birth</label></td>
+            <td><input type="date" name="dob" /></td>
+          </tr>
+
+          <tr>
+            <td><label>Gender</label></td>
+            <td>
+              <input type="radio" name="gender" value="Male" id="male" /><label for="male">Male</label>
+              <input type="radio" name="gender" value="Female" id="female" /><label for="female">Female</label>
+            </td>
+          </tr>
+
+          <tr>
+            <td><label>10th Marks (%)</label></td>
+            <td><input type="number" name="marks10" min="0" max="100" placeholder="e.g. 85.5" step="0.1" /></td>
+          </tr>
+
+          <tr>
+            <td><label>12th Marks (%)</label></td>
+            <td><input type="number" name="marks12" min="0" max="100" placeholder="e.g. 90.2" step="0.1" /></td>
+          </tr>
+
+          <tr>
+            <td><label>Department</label></td>
+            <td><input type="text" name="department" placeholder="e.g. Computer Science" /></td>
+          </tr>
+
+          <tr>
+            <td><label>Hobbies</label></td>
+            <td>
+              <input type="checkbox" name="hobby" value="Reading" id="read" /><label for="read">Reading</label>
+              <input type="checkbox" name="hobby" value="Sports" id="sport" /><label for="sport">Sports</label>
+              <input type="checkbox" name="hobby" value="Music" id="music" /><label for="music">Music</label>
+            </td>
+          </tr>
+
+          <tr>
+            <td><label>Address</label></td>
+            <td><textarea name="address" rows="3" placeholder="Enter full address"></textarea></td>
+          </tr>
+
+          <tr>
+            <td><label>Phone Number</label></td>
+            <td><input type="tel" name="phone" placeholder="10-digit number" /></td>
+          </tr>
+        </table>
+
+        <div class="button-container">
+          <button type="submit">Submit Data</button>
+          <button type="reset">Reset Form</button>
+        </div>
+      </form>
+    </div>
+
+  </body>
+</html>

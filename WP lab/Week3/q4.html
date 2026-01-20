@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Class Timetable</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        background-color: #f8f9fa;
+      }
+      .timetable-container {
+        margin-top: 50px;
+        background: white;
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      }
+      .carousel-control-prev-icon,
+      .carousel-control-next-icon {
+        background-color: #0d6efd; 
+        border-radius: 50%;
+        background-size: 60%;
+      }
+      .table th {
+        background-color: #212529;
+        color: white;
+        text-align: center;
+        vertical-align: middle;
+      }
+      .table td {
+        text-align: center;
+        vertical-align: middle;
+        height: 80px; 
+      }
+      .break-time {
+        background-color: #e9ecef;
+        font-weight: bold;
+        color: #495057;
+        letter-spacing: 2px;
+      }
+      .subject-badge {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 4px;
+      }
+      .room-badge {
+        font-size: 0.8em;
+        color: #6c757d;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container timetable-container">
+      <h2 class="text-center mb-4">
+        SCHOOL OF COMPUTER ENGINEERING,MIT MANIPAL(AY 2025-26)
+      </h2>
+
+      <div id="timetableCarousel" class="carousel slide" data-bs-ride="false">
+        <div class="carousel-indicators">
+          <button
+            type="button"
+            data-bs-target="#timetableCarousel"
+            data-bs-slide-to="0"
+            class="active bg-dark"
+            aria-current="true"
+            aria-label="Slide 1"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#timetableCarousel"
+            data-bs-slide-to="1"
+            class="bg-dark"
+            aria-label="Slide 2"
+          ></button>
+        </div>
+
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <h4 class="text-center text-primary mb-3">
+              Semester & Section: VI BTECH[CSE]-B
+            </h4>
+            <h4 class="text-center text-primary mb-3">Week A (Mon-Wed)</h4>
+            <div class="table-responsive">
+              <table class="table table-bordered table-hover">
+                <thead>
+                  <tr>
+                    <th></th>
+                    <th>8.00-9.00</th>
+                    <th>9.00-10.00</th>
+                    <th>10.00-10.30</th>
+                    <th>10.30-11.30</th>
+                    <th>11.30-12.30</th>
+                    <th></th>
+                    <th>13.00-14.00</th>
+                    <th>14.00-15.00</th>
+                    <th>15.00-15.30</th>
+                    <th>15.30-16.30</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th>Monday</th>
+                    <td>
+                      <span class="subject-badge">PE-1</span>
+                    </td>
+                    <td>
+                      <span class="subject-badge">PCAP</span>
+                    </td>
+                    <td>
+                      <span class="subject-badge"></span>
+                    </td>
+                    <td>
+                      <span class="subject-badge">CD</span>
+                    </td>
+                    <td>
+                      <span class="subject-badge">OE</span>
+                    </td>
+                    <td>
+                      <span class="subject-badge"></span>
+                    </td>
+                    <td>
+                      <span class="subject-badge"></span>
+                    </td>
+                    <td colspan="3">
+                      <span class="subject-badge">CDL-6CSE-B1(CL-15)</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th>Tuesday</th>
+                    <td colspan="4">
+                      <span class="subject-badge"
+                        >WPL-6CSE-B2(CL-2)[8.30-11.30]</span
+                      >
+                    </td>
+                    <td>
+                      <span class="subject-badge"></span>
+                    </td>
+                    <td>
+                      <span class="subject-badge"></span>
+                    </td>
+
+                    <td>
+                      <span class="subject-badge">PE-2</span>
+                    </td>
+                    <td>
+                      <span class="subject-badge">CD</span>
+                    </td>
+                    <td>
+                      <span class="subject-badge"></span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th>Wednesday</th>
+                    <td>
+                      <span class="subject-badge">PE-2</span>
+                    </td>
+                    <td>
+                      <span class="subject-badge">EEFM</span>
+                    </td>
+                    <td>
+                      <span class="subject-badge"></span>
+                    </td>
+                    <td>
+                      <span class="subject-badge">PE-1</span>
+                    </td>
+                    <td>
+                      <span class="subject-badge">PCAP</span>
+                    </td>
+                    <td>
+                      <span class="subject-badge"></span>
+                    </td>
+                    <td>
+                      <span class="subject-badge"></span>
+                    </td>
+                    <td colspan="3">
+                      <span class="subject-badge">PPL-6CSE-B2(CL-14)</span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <h4 class="text-center text-primary mb-3">
+              Semester & Section: VI BTECH[CSE]-B
+            </h4>
+            <h4 class="text-center text-success mb-3">Week B (Thur-Sat)</h4>
+            <div class="table-responsive">
+              <table class="table table-bordered table-striped">
+                <thead>
+                  <tr>
+                    <th></th>
+                    <th>8.00-9.00</th>
+                    <th>9.00-10.00</th>
+                    <th>10.00-10.30</th>
+                    <th>10.30-11.30</th>
+                    <th>11.30-12.30</th>
+                    <th></th>
+                    <th>13.00-14.00</th>
+                    <th>14.00-15.00</th>
+                    <th>15.00-15.30</th>
+                    <th>15.30-16.30</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th>Thursday</th>
+                    <td colspan="6">
+                      <span class="subject-badge"></span>
+                    </td>
+                    <td>
+                      <span class="subject-badge">CD</span>
+                    </td>
+                    <td>
+                      <span class="subject-badge">OE</span>
+                    </td>
+                    <td>
+                      <span class="subject-badge"></span>
+                    </td>
+                    <td>
+                      <span class="subject-badge"></span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th>Friday</th>
+                    <td>
+                      <span class="subject-badge"></span>
+                    </td>
+                    <td>
+                      <span class="subject-badge">OE</span>
+                    </td>
+                    <td>
+                      <span class="subject-badge"></span>
+                    </td>
+                    <td>
+                      <span class="subject-badge">PE-2</span>
+                    </td>
+                    <td>
+                      <span class="subject-badge">EEFM</span>
+                    </td>
+                    <td>
+                      <span class="subject-badge"></span>
+                    </td>
+                    <td>
+                      <span class="subject-badge"></span>
+                    </td>
+                    <td colspan="3">
+                      <span class="subject-badge"
+                        >WPL-6CSE-B1(CL-2)[14.00-17.00]</span
+                      >
+                    </td>
+                  </tr>
+                  <tr>
+                    <th>Saturday</th>
+                    <td colspan="4">
+                      <span class="subject-badge"
+                        >PPL-6CSE-B1(CL14)+CDL-6CSE-B2(CL 11)[8.30-11.00]</span
+                      >
+                    </td>
+                    <td>
+                      <span class="subject-badge"></span>
+                    </td>
+                    <td>
+                      <span class="subject-badge"></span>
+                    </td>
+
+                    <td>
+                      <span class="subject-badge">PE-1</span>
+                    </td>
+                    <td>
+                      <span class="subject-badge">PCAP</span>
+                    </td>
+                    <td>
+                      <span class="subject-badge"></span>
+                    </td>
+                    <td>
+                      <span class="subject-badge">EEFM</span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#timetableCarousel"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#timetableCarousel"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
