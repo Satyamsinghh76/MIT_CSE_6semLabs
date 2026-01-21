@@ -1,0 +1,40 @@
+// Lab exercise 1 - Write a MPI program to read N values in the root process. Root process sends one value to each process. Every process receives it and finds the factorial of that number and returns it to the root process. Root process gathers the factorial and finds sum of it. use N numer of processes.
+
+#include<stdio.h>
+#include "mpi.h"
+
+int fact(int n){
+    if(n==0||n==1) return 1;
+    return n*fact(n-1);
+}
+
+int main(int argc, char *argv[]){
+    int rank, size, n, a[10], b[10],c;
+    MPI_Init(&argc, &argv);
+    MPI_Comm_rank(MPI_COMM_WORLD, &rank);
+    MPI_Comm_size(MPI_COMM_WORLD, &size);
+
+    if(rank == 0){
+        n = size;
+        printf("Enter %d values in the array: ", size);
+        for(int i = 0; i < n; i++) scanf("%d", &a[i]);
+    }
+    
+    MPI_Scatter(a,1,MPI_INT,&c,1,MPI_INT,0,MPI_COMM_WORLD);
+    printf("Process %d: Received number %d\n", rank, c);
+    c = fact(c);
+    MPI_Gather(&c,1,MPI_INT,b,1,MPI_INT,0,MPI_COMM_WORLD);
+
+    if(rank == 0){
+        int sum = 0;
+        printf("Result gathered in the root is: \n");
+        for(int i =0 ; i <n; i++) {
+            printf("Factorial : %d\n", b[i]);
+            sum += b[i];
+        }
+        printf("The sum of N factorials is %d\n", sum);
+    }
+
+    MPI_Finalize();
+    return 0;
+}
