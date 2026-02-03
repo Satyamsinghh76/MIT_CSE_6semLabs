@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Lab Ex 1: Student Details</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f4f4f9; padding: 20px; }
+        .form-container { background: white; padding: 20px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); max-width: 500px; margin: auto; }
+        h2 { color: #333; text-align: center; }
+        label { display: block; margin-top: 10px; font-weight: bold; }
+        input { width: 100%; padding: 8px; margin-top: 5px; border: 1px solid #ddd; border-radius: 4px; box-sizing: border-box; }
+        button { width: 100%; background-color: #007bff; color: white; padding: 10px; border: none; border-radius: 4px; margin-top: 20px; cursor: pointer; font-size: 16px; }
+        button:hover { background-color: #0056b3; }
+        textarea { width: 100%; height: 120px; margin-top: 20px; padding: 10px; border-radius: 4px; border: 1px solid #ddd; box-sizing: border-box; resize: none; }
+        .result { margin-top: 15px; font-size: 18px; text-align: center; }
+        .percentage-label { color: #28a745; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+<div class="form-container">
+    <h2>Student Details Entry</h2>
+    
+    <label>Full Name:</label> <input type="text" id="name">
+    <label>Date of Birth:</label> <input type="date" id="dob">
+    <label>Address:</label> <input type="text" id="address">
+    <label>Contact Number:</label> <input type="text" id="contact">
+    <label>Email ID:</label> <input type="email" id="email">
+    
+    <hr>
+    <h3>Marks</h3>
+    <label>English:</label> <input type="number" id="eng" placeholder="0-100">
+    <label>Physics:</label> <input type="number" id="phy" placeholder="0-100">
+    <label>Chemistry:</label> <input type="number" id="chem" placeholder="0-100">
+
+    <button onclick="displayDetails()">Submit & Calculate</button>
+
+    <textarea id="summaryArea" readonly placeholder="Details will appear here..."></textarea>
+    
+    <div class="result">
+        Total Percentage: <span id="percentLabel" class="percentage-label">0</span>%
+    </div>
+</div>
+
+<script>
+    function displayDetails() {
+        // 1. Get values from the form
+        const name = document.getElementById('name').value;
+        const dob = document.getElementById('dob').value;
+        const addr = document.getElementById('address').value;
+        const phone = document.getElementById('contact').value;
+        const mail = document.getElementById('email').value;
+
+        const eng = parseFloat(document.getElementById('eng').value) || 0;
+        const phy = parseFloat(document.getElementById('phy').value) || 0;
+        const chem = parseFloat(document.getElementById('chem').value) || 0;
+
+        // 2. Calculate Percentage
+        const total = eng + phy + chem;
+        const percentage = (total / 300) * 100;
+
+        // 3. Format the summary string
+        const summary = 
+            "STUDENT SUMMARY\n" +
+            "--------------------\n" +
+            "Name: " + name + "\n" +
+            "DOB: " + dob + "\n" +
+            "Address: " + addr + "\n" +
+            "Contact: " + phone + "\n" +
+            "Email: " + mail + "\n" +
+            "Marks: English(" + eng + "), Physics(" + phy + "), Chemistry(" + chem + ")";
+
+        // 4. Update the UI
+        document.getElementById('summaryArea').value = summary;
+        document.getElementById('percentLabel').innerText = percentage.toFixed(2);
+    }
+</script>
+
+</body>
+</html>

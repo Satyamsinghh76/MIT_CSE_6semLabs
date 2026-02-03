@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Captcha Verification</title>
+    <style>
+        body { font-family: sans-serif; display: flex; justify-content: center; padding-top: 50px; background-color: #f4f4f4; }
+        .captcha-container { background: white; padding: 30px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); text-align: center; width: 350px; }
+        .captcha-display { 
+            background: #e0e0e0; font-size: 28px; font-weight: bold; letter-spacing: 5px; 
+            padding: 10px; margin-bottom: 15px; user-select: none; font-style: italic;
+            text-decoration: line-through; color: #333;
+        }
+        input { width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
+        button { width: 100%; padding: 10px; background: #007bff; color: white; border: none; border-radius: 4px; cursor: pointer; }
+        button:disabled { background: #ccc; cursor: not-allowed; }
+        #msg { margin-top: 15px; font-weight: bold; }
+        .error { color: red; }
+        .success { color: green; }
+    </style>
+</head>
+<body onload="generateCaptcha()">
+
+<div class="captcha-container">
+    <h2>Security Check</h2>
+    <div id="captchaBox" class="captcha-display"></div>
+    
+    <input type="text" id="userInput" placeholder="Enter Captcha Above">
+    
+    <button id="submitBtn" onclick="verifyCaptcha()">Verify</button>
+    <p id="msg"></p>
+    <p id="attemptCount">Attempts left: 3</p>
+</div>
+
+<script>
+    let currentCaptcha = "";
+    let attempts = 0;
+    const maxAttempts = 3;
+
+    function generateCaptcha() {
+        const chars = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        let result = "";
+        for (let i = 0; i < 6; i++) {
+            result += chars.charAt(Math.floor(Math.random() * chars.length));
+        }
+        currentCaptcha = result;
+        document.getElementById("captchaBox").innerText = result;
+    }
+
+    function verifyCaptcha() {
+        const userInput = document.getElementById("userInput").value;
+        const msg = document.getElementById("msg");
+        const inputField = document.getElementById("userInput");
+        const btn = document.getElementById("submitBtn");
+        const countLabel = document.getElementById("attemptCount");
+
+        if (userInput === currentCaptcha) {
+            msg.innerText = "Match! Access Granted.";
+            msg.className = "success";
+            attempts = 0; // Reset attempts on success
+            countLabel.innerText = "Verified successfully.";
+        } else {
+            attempts++;
+            let remaining = maxAttempts - attempts;
+            
+            if (attempts >= maxAttempts) {
+                msg.innerText = "Too many failed attempts. TextBox disabled.";
+                msg.className = "error";
+                inputField.disabled = true;
+                btn.disabled = true;
+                countLabel.innerText = "Attempts left: 0";
+            } else {
+                msg.innerText = "Mismatch! Try again.";
+                msg.className = "error";
+                countLabel.innerText = "Attempts left: " + remaining;
+                generateCaptcha(); // Change captcha on wrong entry
+                inputField.value = "";
+            }
+        }
+    }
+</script>
+
+</body>
+</html>

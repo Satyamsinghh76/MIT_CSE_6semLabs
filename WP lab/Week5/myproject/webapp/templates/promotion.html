@@ -1,0 +1,79 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Promotion Eligibility</title>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; padding: 40px; background-color: #f0f2f5; }
+        .card { background: white; padding: 30px; border-radius: 12px; max-width: 400px; margin: auto; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        h2 { text-align: center; color: #1a73e8; }
+        label { display: block; margin-top: 15px; font-weight: 600; }
+        select, input { width: 100%; padding: 10px; margin-top: 5px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
+        button { width: 100%; background-color: #1a73e8; color: white; padding: 12px; border: none; border-radius: 4px; margin-top: 25px; cursor: pointer; font-size: 16px; }
+        button:hover { background-color: #1557b0; }
+        .result-box { margin-top: 20px; text-align: center; font-size: 20px; font-weight: bold; }
+        #statusLabel { padding: 5px 15px; border-radius: 4px; }
+        .yes { color: #28a745; background: #e6ffed; }
+        .no { color: #dc3545; background: #ffeef0; }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <h2>Promotion Checker</h2>
+    
+    <label>Select Employee ID:</label>
+    <select id="empId">
+        <option value="E001">E001</option>
+        <option value="E002">E002</option>
+        <option value="E003">E003</option>
+        <option value="E004">E004</option>
+        <option value="E005">E005</option>
+    </select>
+
+    <label>Date of Joining:</label>
+    <input type="date" id="doj">
+
+    <button onclick="checkEligibility()">Am I Eligible for Promotion?</button>
+
+    <div class="result-box">
+        Eligible: <span id="statusLabel">-</span>
+    </div>
+</div>
+
+<script>
+    function checkEligibility() {
+        const dojValue = document.getElementById('doj').value;
+        const statusLabel = document.getElementById('statusLabel');
+
+        if (!dojValue) {
+            alert("Please select a valid Date of Joining.");
+            return;
+        }
+
+        // 1. Get current date and DOJ
+        const today = new Date();
+        const joiningDate = new Date(dojValue);
+
+        // 2. Calculate difference in years
+        let yearsOfExperience = today.getFullYear() - joiningDate.getFullYear();
+        
+        // 3. Adjust if the anniversary hasn't happened yet this year
+        const monthDiff = today.getMonth() - joiningDate.getMonth();
+        if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < joiningDate.getDate())) {
+            yearsOfExperience--;
+        }
+
+        // 4. Logic check: more than 5 years
+        if (yearsOfExperience >= 5) {
+            statusLabel.innerText = "YES";
+            statusLabel.className = "yes";
+        } else {
+            statusLabel.innerText = "NO";
+            statusLabel.className = "no";
+        }
+    }
+</script>
+
+</body>
+</html>
