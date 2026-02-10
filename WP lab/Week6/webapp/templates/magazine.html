@@ -1,0 +1,65 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Magazine Cover Generator</title>
+    <link rel="stylesheet" href="{% static 'css/magazine.css' %}">
+</head>
+<body>
+
+<div class="container">
+
+    <form method="post" class="form">
+        {% csrf_token %}
+        <h2>Magazine Cover Editor</h2>
+
+        <input type="text" name="title" placeholder="Magazine Title" required>
+        <input type="text" name="tagline" placeholder="Tagline">
+        <input type="text" name="headline" placeholder="Main Headline">
+
+        <label>Background Color</label>
+        <input type="color" name="bgcolor">
+
+        <label>Font Color</label>
+        <input type="color" name="fontcolor">
+
+        <label>Font Size</label>
+        <input type="number" name="fontsize" value="36">
+
+        <label>Font Family</label>
+        <select name="fontfamily">
+            <option value="Arial">Arial</option>
+            <option value="Georgia">Georgia</option>
+            <option value="Verdana">Verdana</option>
+            <option value="Times New Roman">Times New Roman</option>
+        </select>
+
+        <label>Text Alignment</label>
+        <select name="align">
+            <option value="center">Center</option>
+            <option value="left">Left</option>
+            <option value="right">Right</option>
+        </select>
+
+        <button type="submit">Generate Cover</button>
+    </form>
+
+    {% if title %}
+    <div class="cover"
+         style="background-color:{{ bgcolor }};
+                color:{{ fontcolor }};
+                font-family:{{ fontfamily }};
+                text-align:{{ align }};">
+
+        <div class="tagline">{{ tagline }}</div>
+        <div class="title" style="font-size:{{ fontsize }}px;">
+            {{ title }}
+        </div>
+        <div class="headline">{{ headline }}</div>
+    </div>
+    {% endif %}
+
+</div>
+
+</body>
+</html>

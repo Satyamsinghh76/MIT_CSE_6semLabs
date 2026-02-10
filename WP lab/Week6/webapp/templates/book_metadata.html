@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Book Metadata</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Trebuchet MS', sans-serif;
+            background: linear-gradient(to right, #141e30, #243b55);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .box {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            border-radius: 15px;
+            width: 420px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+
+        h2 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 16px;
+            color: #34495e;
+            margin: 8px 0;
+        }
+
+        a {
+            display: block;
+            margin-top: 25px;
+            text-align: center;
+            padding: 10px;
+            background-color: #243b55;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: background 0.3s;
+        }
+
+        a:hover {
+            background-color: #1abc9c;
+        }
+    </style>
+</head>
+<body>
+
+<div class="box">
+    <h2>Book Metadata</h2>
+    <p><strong>Title:</strong> The Great Book</p>
+    <p><strong>Author:</strong> John Doe</p>
+    <p><strong>ISBN:</strong> 978-1234567890</p>
+    <p><strong>Language:</strong> English</p>
+    <p><strong>Pages:</strong> 320</p>
+
+    <a href="{% url 'home' %}">⬅ Back to Home</a>
+</div>
+
+</body>
+</html>

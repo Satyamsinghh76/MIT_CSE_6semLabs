@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Message Styler</title>
+    <style>
+        .result-label { 
+            font-size: 24px; 
+            padding: 15px; 
+            border: 2px solid #333; 
+            margin-top: 20px; 
+            display: inline-block; 
+            min-width: 200px;
+        }
+        .bold { font-weight: bold; }
+        .italic { font-style: italic; }
+        .underline { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <h2>Message Styler</h2>
+    <form method="POST">
+        {% csrf_token %}
+        <input type="text" name="name" placeholder="Enter Name" value="{{ name }}">
+        <input type="text" name="message" placeholder="Enter Message" value="{{ message }}">
+        
+        <h3>Formatting Options</h3>
+        <input type="checkbox" name="bold" {% if bold %}checked{% endif %}> Bold
+        <input type="checkbox" name="italic" {% if italic %}checked{% endif %}> Italic
+        <input type="checkbox" name="underline" {% if underline %}checked{% endif %}> Underline
+
+        <p>Text Color:</p>
+        <input type="radio" name="color" value="black" checked> Black
+        <input type="radio" name="color" value="red" {% if color == 'red' %}checked{% endif %}> Red
+        <input type="radio" name="color" value="blue" {% if color == 'blue' %}checked{% endif %}> Blue
+        <input type="radio" name="color" value="green" {% if color == 'green' %}checked{% endif %}> Green
+
+        <br><br>
+        <button type="submit" name="action" value="display">Display Message</button>
+        <button type="submit" name="action" value="clear">Clear</button>
+        <button type="button" onclick="window.location.href='about:blank'">Exit</button>
+    </form>
+
+    <hr>
+
+    {% if name_display or msg_display %}
+    <div class="result-label {{ bold }} {{ italic }} {{ underline }}" style="color: {{ color }};">
+        <div>{{ name_display }}</div>
+        <div>{{ msg_display }}</div>
+    </div>
+    {% endif %}
+
+</body>
+</html>

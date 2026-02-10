@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Publisher Info</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Verdana', sans-serif;
+            background: linear-gradient(90deg, #ffecd2 50%, #fcb69f 50%);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .box {
+            width: 420px;
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            border-left: 6px solid #e67e22;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+        }
+
+        h2 {
+            color: #e67e22;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        p {
+            font-size: 15px;
+            color: #2c3e50;
+            margin: 8px 0;
+        }
+
+        a {
+            display: block;
+            margin-top: 25px;
+            text-align: center;
+            padding: 10px;
+            background-color: #e67e22;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: background 0.3s ease;
+        }
+
+        a:hover {
+            background-color: #d35400;
+        }
+    </style>
+</head>
+<body>
+
+<div class="box">
+    <h2>Publisher Information</h2>
+    <p><strong>Publisher:</strong> ABC Publications</p>
+    <p><strong>Address:</strong> New York, USA</p>
+    <p><strong>Contact:</strong> contact@abcpublications.com</p>
+    <p><strong>Year of Publication:</strong> 2023</p>
+
+    <a href="{% url 'home' %}">⬅ Back to Home</a>
+</div>
+
+</body>
+</html>

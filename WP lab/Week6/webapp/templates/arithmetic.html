@@ -1,0 +1,37 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Arithmetic Calculator</title>
+    <link rel="stylesheet" href="{% static 'css/arithmetic.css' %}">
+</head>
+<body>
+
+<div class="card">
+    <h2>Arithmetic Calculator</h2>
+
+    <form method="post">
+        {% csrf_token %}
+
+        <input type="number" name="num1" placeholder="Enter first number" required>
+        <input type="number" name="num2" placeholder="Enter second number" required>
+
+        <select name="operation">
+            <option value="add">Addition (+)</option>
+            <option value="sub">Subtraction (-)</option>
+            <option value="mul">Multiplication (×)</option>
+            <option value="div">Division (÷)</option>
+        </select>
+
+        <button type="submit">Calculate</button>
+    </form>
+
+    {% if result != None %}
+        <div class="result">
+            Result: {{ result }}
+        </div>
+    {% endif %}
+</div>
+
+</body>
+</html>

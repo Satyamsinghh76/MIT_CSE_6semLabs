@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Book Reviews</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Georgia', serif;
+            background: #faf3e0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .box {
+            width: 460px;
+            background: #fffdf7;
+            padding: 30px;
+            border-radius: 14px;
+            box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+            border-top: 6px solid #8e44ad;
+        }
+
+        h2 {
+            text-align: center;
+            color: #8e44ad;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 16px;
+            color: #2c3e50;
+            background: #f4ecf7;
+            padding: 10px;
+            border-radius: 8px;
+            margin: 10px 0;
+        }
+
+        a {
+            display: block;
+            margin-top: 25px;
+            padding: 10px;
+            text-align: center;
+            background-color: #8e44ad;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: background 0.3s ease;
+        }
+
+        a:hover {
+            background-color: #6c3483;
+        }
+    </style>
+</head>
+<body>
+
+<div class="box">
+    <h2>Book Reviews</h2>
+
+    <p>⭐️⭐️⭐️⭐️☆ — “Very engaging and informative.”</p>
+    <p>⭐️⭐️⭐️⭐️⭐️ — “A must-read book!”</p>
+    <p>⭐️⭐️⭐️⭐️☆ — “Well-written and insightful.”</p>
+
+    <a href="{% url 'home' %}">⬅ Back to Home</a>
+</div>
+
+</body>
+</html>
