@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>First Page</title>
+</head>
+<body>
+
+<h2>Enter Details</h2>
+
+<form method="POST" action="{% url 'second_page' %}">
+    {% csrf_token %}
+
+    Name: <input type="text" name="name" required><br><br>
+    Roll: <input type="text" name="roll" required><br><br>
+
+    Subject:
+    <select name="subject">
+        <option value="Maths">Maths</option>
+        <option value="Physics">Physics</option>
+        <option value="Chemistry">Chemistry</option>
+    </select>
+
+    <br><br>
+
+    <button type="submit">Submit</button>
+
+</form>
+
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Second Page</title>
+</head>
+<body>
+
+<h2>Received Details</h2>
+
+<p>Name: {{ name }}</p>
+<p>Roll: {{ roll }}</p>
+<p>Subject: {{ subject }}</p>
+
+<a href="{% url 'first_page' %}">
+    <button>Go Back</button>
+</a>
+
+</body>
+</html>
