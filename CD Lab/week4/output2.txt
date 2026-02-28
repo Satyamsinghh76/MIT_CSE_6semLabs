@@ -1,0 +1,9 @@
+GLOBAL SYMBOL TABLE
+Name	Type	Line
+main	int	2
+
+LOCAL SYMBOL TABLE
+Name	Type	Line
+username	char	3
+password	char	3
+u	char	4

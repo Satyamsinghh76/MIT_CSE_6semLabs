@@ -1,0 +1,9 @@
+GLOBAL SYMBOL TABLE
+Name	Type	Line
+main	int	2
+
+LOCAL SYMBOL TABLE
+Name	Type	Line
+i	int	3
+msg	char	4
+d	int	5

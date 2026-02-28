@@ -1,0 +1,54 @@
+#include <stdio.h>
+
+int main() {
+    int i;
+    char msg[] = "Done";  
+int d=1;
+    for (i = 1; i <= 10; i++) {      // loop
+        if (i % 2 == 0 && !d) {            // decision
+            printf("%d is Even\n", i);
+       
+        } else {
+            printf("%d is Odd\n", i);
+        d -=1;
+        }
+    }
+  printf("%s",msg);
+    return 0;
+}
+
+
+
+
+INPUT 2:
+
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char username[] = "admin";     // string initialization
+    char password[] = "1234";      // string initialization
+
+    char u[20], p[20];
+
+    printf("Enter username: ");
+    scanf("%s", u);
+
+    printf("Enter password: ");
+    scanf("%s", p);
+
+    // logical AND (&&) operator
+    if (strcmp(u, username) == 0 && strcmp(p, password) == 0) {
+        printf("Login successful\n");
+    }
+    // logical OR (||) operator
+    else if (strcmp(u, username) == 0 || strcmp(p, password) == 0) {
+        printf("Partial match\n");
+    }
+    else {
+        printf("Login failed\n");
+    }
+
+    return 0;
+}
+
