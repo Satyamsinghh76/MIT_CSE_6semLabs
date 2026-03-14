@@ -1,0 +1,5 @@
+main ( ) {
+id , id [ num ]
+id = id + num ;
+id = id * num ;
+}
