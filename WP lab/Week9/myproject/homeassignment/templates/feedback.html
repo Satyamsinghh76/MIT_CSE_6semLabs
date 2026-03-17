@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Feedback Form</title>
+</head>
+<body>
+
+<h2>Courseware Feedback Form</h2>
+
+<form method="POST">
+    {% csrf_token %}
+
+    <label>Student Name:</label><br>
+    <input type="text" name="name" required><br><br>
+
+    <label>Sex:</label><br>
+    <input type="radio" name="gender" value="male"> Male
+    <input type="radio" name="gender" value="female"> Female<br><br>
+
+    <label>Select Course:</label><br>
+    <select name="course">
+        <option>ASP-XML</option>
+        <option>DotNET</option>
+        <option>JavaPro</option>
+        <option>Unix</option>
+        <option>C</option>
+        <option>C++</option>
+    </select><br><br>
+
+    <label>Technical Coverage:</label><br>
+    <input type="radio" name="coverage" value="Excellent"> Excellent<br>
+    <input type="radio" name="coverage" value="Good"> Good<br>
+    <input type="radio" name="coverage" value="Average"> Average<br>
+    <input type="radio" name="coverage" value="Poor"> Poor<br><br>
+
+    <label>Suggestions:</label><br>
+    <textarea name="suggestion" rows="4" cols="30"></textarea><br><br>
+
+    <button type="submit">Submit Form</button>
+
+</form>
+
+<br>
+
+{% if message %}
+    <h3>{{ message }}</h3>
+{% endif %}
+
+<hr>
+<a href="{% url 'home' %}">Redirect to Home</a>
+
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Billing Page</title>
+</head>
+<body>
+
+<h2>Product Selection</h2>
+
+<form method="POST" action="{% url 'billing_page2' %}">
+    {% csrf_token %}
+
+    <h3>Select Brand:</h3>
+    <input type="radio" name="brand" value="HP" required> HP<br>
+    <input type="radio" name="brand" value="Nokia"> Nokia<br>
+    <input type="radio" name="brand" value="Samsung"> Samsung<br>
+    <input type="radio" name="brand" value="Motorola"> Motorola<br>
+    <input type="radio" name="brand" value="Apple"> Apple<br><br>
+
+    <h3>Select Item:</h3>
+    <input type="checkbox" name="item" value="Mobile"> Mobile<br>
+    <input type="checkbox" name="item" value="Laptop"> Laptop<br><br>
+
+    <h3>Enter Quantity:</h3>
+    <input type="number" name="quantity" min="1" required><br><br>
+
+    <button type="submit">Produce Bill</button>
+
+</form>
+
+<hr>
+<a href="{% url 'home' %}">Redirect to Home</a>
+
+</body>
+</html>

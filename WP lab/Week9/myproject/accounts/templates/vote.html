@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Voting Page</title>
+</head>
+<body>
+
+<h2>How is the book ASP.NET with C# by Vipul Prakashan?</h2>
+
+<form method="POST">
+    {% csrf_token %}
+
+    <input type="radio" name="choice" value="good" required>
+    Good
+    {% if show_result %} {{ good_percent }}% {% endif %}
+    <br><br>
+
+    <input type="radio" name="choice" value="satisfactory">
+    Satisfactory
+    {% if show_result %} {{ satisfactory_percent }}% {% endif %}
+    <br><br>
+
+    <input type="radio" name="choice" value="bad">
+    Bad
+    {% if show_result %} {{ bad_percent }}% {% endif %}
+    <br><br>
+
+    <button type="submit">Vote</button>
+
+</form>
+<hr>
+<a href="{% url 'home' %}">Redirect to Home</a>
+</body>
+</html>

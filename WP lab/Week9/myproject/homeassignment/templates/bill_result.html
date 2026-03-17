@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bill Result</title>
+</head>
+<body>
+
+<h2>Bill Details</h2>
+
+<h3>Selected Items:</h3>
+<ul>
+    {% for item in selected_items %}
+        <li>{{ item }}</li>
+    {% endfor %}
+</ul>
+
+<h3>Quantity: {{ quantity }}</h3>
+<h3>Total Amount: ₹ {{ total_amount }}</h3>
+
+<hr>
+<a href="{% url 'home' %}">Redirect to Home</a>
+
+</body>
+</html>

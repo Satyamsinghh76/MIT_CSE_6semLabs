@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Register Page</title>
+</head>
+<body>
+
+    <h2>Register Here</h2>
+
+    <form method="POST">
+        {% csrf_token %}
+
+        <label>User Name (Required):</label><br>
+        <input type="text" name="username" required><br><br>
+
+        <label>Password:</label><br>
+        <input type="password" name="password"><br><br>
+
+        <label>Email ID:</label><br>
+        <input type="email" name="email"><br><br>
+
+        <label>Contact Number:</label><br>
+        <input type="text" name="contact"><br><br>
+
+        <button type="submit">Register</button>
+
+    </form>
+<hr>
+<a href="{% url 'home' %}">Redirect to Home</a>
+</body>
+</html>
