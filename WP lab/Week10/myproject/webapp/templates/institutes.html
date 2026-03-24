@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Institutes</title>
+</head>
+<body>
+
+<h1>Institutes List</h1>
+
+<select size="5">
+    {% for inst in institutes %}
+        <option>{{ inst.name }}</option>
+    {% endfor %}
+</select>
+
+<br><br>
+
+<a href="{% url 'directory_home' %}">Back</a>
+
+</body>
+</html>

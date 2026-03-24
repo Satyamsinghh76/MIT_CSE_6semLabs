@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Website Directory</title>
+</head>
+<body>
+
+<h1>Website Directory</h1>
+
+<h2>Add Category</h2>
+<form method="post" action="{% url 'add_category' %}">
+    {% csrf_token %}
+    {{ cat_form.as_p }}
+    <button type="submit">Add Category</button>
+</form>
+
+<hr>
+
+<h2>Add Page</h2>
+<form method="post" action="{% url 'add_page' %}">
+    {% csrf_token %}
+    {{ page_form.as_p }}
+    <button type="submit">Add Page</button>
+</form>
+
+<hr>
+
+<h2>Categories</h2>
+<ul>
+{% for cat in categories %}
+    <li>{{ cat.name }} (Visits: {{ cat.visits }}, Likes: {{ cat.likes }})</li>
+{% endfor %}
+</ul>
+
+<hr>
+
+<h2>Pages</h2>
+<ul>
+{% for page in pages %}
+    <li>
+        {{ page.title }} -
+        <a href="{{ page.url }}">{{ page.url }}</a>
+        (Category: {{ page.category.name }})
+    </li>
+{% endfor %}
+</ul>
+
+<hr>
+
+<h2>Other Question</h2>
+
+<a href="{% url 'works_home' %}">
+    <button>Go to WORKS Question</button>
+</a>
+<hr>
+
+<br><br>
+
+<a href="{% url 'institutes_home' %}">
+    <button>Go to INSTITUTES Question</button>
+</a>
+</body>
+</html>

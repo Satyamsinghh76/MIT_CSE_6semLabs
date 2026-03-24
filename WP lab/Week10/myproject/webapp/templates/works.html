@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>WORKS Table</title>
+</head>
+<body>
+
+<h1>WORKS TABLE</h1>
+
+<h2>Add Work Entry</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" name="add">Add</button>
+</form>
+
+<hr>
+
+<h2>Search by Company</h2>
+<form method="post">
+    {% csrf_token %}
+    <input type="text" name="company" placeholder="Enter company name">
+    <button type="submit" name="search">Search</button>
+</form>
+
+<hr>
+
+{% if results %}
+<h2>Results</h2>
+<ul>
+{% for r in results %}
+    <li>{{ r.name }} works at {{ r.company }} and lives in {{ r.city }}</li>
+{% endfor %}
+</ul>
+{% endif %}
+
+<br>
+<a href="{% url 'directory_home' %}">Back</a>
+<hr>
+
+<h2>All Entries</h2>
+<ul>
+{% for w in all_data %}
+    <li>{{ w.person_name }} - {{ w.company_name }} - {{ w.salary }}</li>
+{% endfor %}
+</ul>
+</body>
+</html>
